@@ -1,0 +1,16 @@
+jobs:
+  mail_on_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Automatic mail
+          body: this is automatic message upon push from this repo - ${{github.repository}}. pushed by ${{github.event.pusher.name}} and with message of ${{github.event.head_commit.message}}.
+          to: jyrivaitmaa@gmail.com
+          from: Github actions
+        on: [push]
