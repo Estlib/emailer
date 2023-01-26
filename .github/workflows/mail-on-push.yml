@@ -12,5 +12,5 @@ jobs:
           subject: Automatic mail
           body: this is automatic message upon push from this repo - ${{github.repository}}. pushed by ${{github.event.pusher.name}} and with message of ${{github.event.head_commit.message}}.
           to: jyrivaitmaa@gmail.com
-          from: Github actions
+          from: Github actions!
         on: [push]
